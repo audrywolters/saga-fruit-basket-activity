@@ -23,11 +23,11 @@ class FruitItem extends Component {
     render() {
         return (
             <li>
-                <span>{this.props.basketItem.fruit}</span>
-                <button onClick={this.removeItem}>Remove</button>
+                <span>{ this.props.basketItem.fruit }</span>
+                <button onClick={ this.removeItem }>Remove</button>
             </li>
         )
     }
 }
 
-export default connect()(FruitItem);
+export default connect()( FruitItem );

@@ -21,10 +21,10 @@ function* rootSaga() {
 function* getFruitSaga( action ) {
 
     try {
-        const response = yield axios.get('/fruit');
+        const response = yield axios.get( '/fruit' );
         yield put( { type: 'SET_BASKET', payload: response.data } );
     } catch ( error ) {
-        console.log('error with fruit get request', error);
+        console.log( 'error with fruit get request', error );
     }
 }
 
@@ -34,8 +34,8 @@ const sagaMiddleware = createSagaMiddleware();
 // This function (our reducer) will be called when an 
 // action is dipatched. state = ['Apple'] sets the default 
 // value of the array.
-const basketReducer = (state = [], action) => {
-    switch (action.type) {
+const basketReducer = ( state = [], action ) => {
+    switch ( action.type ) {
         case 'SET_BASKET':
             return action.payload;
         default:
@@ -46,15 +46,15 @@ const basketReducer = (state = [], action) => {
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({
-        basketReducer,
+        basketReducer
     }),
     // Add sagaMiddleware to our store
-    applyMiddleware(sagaMiddleware, logger),
+    applyMiddleware( sagaMiddleware, logger )
 );
 
 // Pass rootSaga into our sagaMiddleware
-sagaMiddleware.run(rootSaga);
+sagaMiddleware.run( rootSaga );
 
-ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, 
-    document.getElementById('root'));
+ReactDOM.render(<Provider store={ storeInstance }><App /></Provider>, 
+    document.getElementById( 'root' ) );
 registerServiceWorker();

@@ -13,9 +13,9 @@ class FruitList extends Component {
     render() {
         return (
             <ul>
-                {this.props.reduxState.basketReducer.map((basketItem) => {
+                { this.props.reduxState.basketReducer.map( ( basketItem ) => {
                     return (
-                        <FruitItem key={basketItem.id} basketItem={basketItem} />
+                        <FruitItem key={ basketItem.id } basketItem={ basketItem } />
                     );
                 })}
             </ul>
@@ -23,8 +23,8 @@ class FruitList extends Component {
     }
 }
 // Makes our reducers available in our component
-const mapReduxStateToProps = (reduxState) => ({
+const mapReduxStateToProps = ( reduxState ) => ({
     reduxState
 });
 
-export default connect(mapReduxStateToProps)(FruitList);
+export default connect( mapReduxStateToProps )( FruitList );
