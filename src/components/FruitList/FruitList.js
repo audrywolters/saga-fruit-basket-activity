@@ -1,23 +1,12 @@
 import React, { Component } from 'react';
-import FruitItem from '../FruitItem/FruitItem.js';
 import { connect } from 'react-redux';
-import axios from 'axios';
+import FruitItem from '../FruitItem/FruitItem.js';
+
 
 class FruitList extends Component {
-    componentDidMount() {
-        this.getFruit();
-    }
 
-    getFruit() {
-        axios({
-            method: 'GET',
-            url: '/fruit'
-        }).then((response) => {
-            const action = { type: 'SET_BASKET', payload: response.data };
-            this.props.dispatch(action);
-        }).catch((error) => {
-            alert('Unable to get basket from server');
-        });
+    componentDidMount() {
+        this.props.dispatch( { type: 'FETCH_FRUIT' } );
     }
 
     render() {

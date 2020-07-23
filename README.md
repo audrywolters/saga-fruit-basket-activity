@@ -13,7 +13,7 @@ Let's add Sagas to our React Redux fruit basket.
 > NOTE: Start by taking inventory of the existing code. Part of the work for setting up sagas has been done for you. All of the server side code has already been completed.
 
 - [x] Setup Sagas in the `index.js`
-- [ ] Create a Saga that GETs fruit from the server
+- [x] Create a Saga that GETs fruit from the server
 - [ ] Replace all calls to GET fruit (FruitItem.js, FruitList.js, FruitSelector.js) with a call to dispatch your Saga
 - [ ] Create a Saga that POSTs new fruit to the server
 - [ ] Replace the call to add a fruit with a call to dispatch your Saga

@@ -9,10 +9,25 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 // Import saga middleware
 import createSagaMiddleware from 'redux-saga';
+import { takeEvery, put } from 'redux-saga/effects';
+import axios from 'axios';
 
 // Create the rootSaga generator function
 function* rootSaga() {
+    yield takeEvery( 'FETCH_FRUIT', getFruitSaga );
+}
 
+// get that fruit from the server
+function* getFruitSaga( action ) {
+
+    console.log('!!!!!!getting fruit via saga!!! ');
+
+    try {
+        const response = yield axios.get('/fruit');
+        yield put( { type: 'SET_BASKET', payload: response.data } );
+    } catch ( error ) {
+        console.log('error with fruit get request', error);
+    }
 }
 
 // Create sagaMiddleware
