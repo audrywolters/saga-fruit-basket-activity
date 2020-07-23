@@ -10,7 +10,6 @@ class FruitSelector extends Component {
     }
 
     getFruit() {
-        console.log( '-------- SELECTOR get saga' );
         this.props.dispatch( { type: 'FETCH_FRUIT' } );
     }
 

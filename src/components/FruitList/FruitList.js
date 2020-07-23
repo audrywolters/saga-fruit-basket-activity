@@ -6,7 +6,6 @@ import FruitItem from '../FruitItem/FruitItem.js';
 class FruitList extends Component {
 
     componentDidMount() {
-        console.log( '-------- LIST get saga' );
         this.props.dispatch( { type: 'FETCH_FRUIT' } );
     }
 

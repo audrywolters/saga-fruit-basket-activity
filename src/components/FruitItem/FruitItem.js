@@ -10,13 +10,12 @@ class FruitItem extends Component {
         }).then((response) => {
             this.getFruit();
         }).catch((error) => {
-            console.log(error);
+            console.log( error );
             alert('Unable to delete item');
         });  
     }
 
     getFruit() {
-        console.log( '-------- ITEM get saga' );
         this.props.dispatch( { type: 'FETCH_FRUIT' } );
     }
 
