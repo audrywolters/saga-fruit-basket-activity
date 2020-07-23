@@ -20,8 +20,6 @@ function* rootSaga() {
 // get that fruit from the server
 function* getFruitSaga( action ) {
 
-    console.log('!!!!!!getting fruit via saga!!! ');
-
     try {
         const response = yield axios.get('/fruit');
         yield put( { type: 'SET_BASKET', payload: response.data } );

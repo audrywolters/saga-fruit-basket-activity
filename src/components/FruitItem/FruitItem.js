@@ -16,15 +16,8 @@ class FruitItem extends Component {
     }
 
     getFruit() {
-        axios({
-            method: 'GET',
-            url: '/fruit'
-        }).then((response) => {
-            const action = { type: 'SET_BASKET', payload: response.data };
-            this.props.dispatch(action);
-        }).catch((error) => {
-            alert('Unable to get basket from server');
-        });
+        console.log( '-------- ITEM get saga' );
+        this.props.dispatch( { type: 'FETCH_FRUIT' } );
     }
 
     render() {
