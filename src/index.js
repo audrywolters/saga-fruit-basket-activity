@@ -14,16 +14,26 @@ import './index.css';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery( 'FETCH_FRUIT', getFruitSaga );
+    yield takeEvery( 'ADD_FRUIT', addFruitSaga );
 }
 
 // get that fruit from the server
 function* getFruitSaga( action ) {
-
     try {
         const response = yield axios.get( '/fruit' );
         yield put( { type: 'SET_BASKET', payload: response.data } );
     } catch ( error ) {
-        console.log( 'error with fruit get request', error );
+        console.log( 'error with fruit GET request', error );
+    }
+}
+
+// put fruit in server
+function* addFruitSaga( action ) {
+    try {
+        yield axios.post( '/fruit', action.payload );
+        yield put( { type: 'FETCH_FRUIT' } );
+    } catch ( error ) {
+        console.log( 'error with fruit POST request', error );
     }
 }
 
